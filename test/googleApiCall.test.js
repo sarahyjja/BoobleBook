@@ -23,4 +23,11 @@ describe("Google books API call integration", () => {
 
   // Test 3
   // Error handling: test if passing an empty string will return a prompt 'Missing input'
+  test("If passing an empty query will returns the status code of 400 and an error message", done => {
+    makeGoogleApiCall("").catch(error => {
+      expect(error.response.status).toBe(400);
+      expect(error.response.data.error.message).toBe("Missing query.");
+    });
+    done();
+  });
 });
