@@ -1,0 +1,23 @@
+{
+  "name": "booblebookcli",
+  "version": "1.0.0",
+  "description": "Google book CLI app",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest test/*test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sarahyjja/BoobleBook.git"
+  },
+  "author": "sarahyjja",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sarahyjja/BoobleBook/issues"
+  },
+  "homepage": "https://github.com/sarahyjja/BoobleBook#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^24.9.0"
+  }
+}
