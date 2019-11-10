@@ -1,4 +1,4 @@
-const { makeGoogleApiCall } = require("../src/googleApiCall");
+const { makeGoogleApiCall, getListOfBooks } = require("../src/googleApiCall");
 
 describe("Google books API call integration", () => {
   test("If returns a status code of 200", () => {
@@ -22,6 +22,15 @@ describe("Google books API call integration", () => {
     makeGoogleApiCall("").catch(error => {
       expect(error.response.status).toBe(400);
       expect(error.response.data.error.message).toBe("Missing query.");
+    });
+    done();
+  });
+});
+
+describe("Google books API retrieves a list of books", () => {
+  test("If getListOfBooks returns a list of 10 books", done => {
+    getListOfBooks("Pop").then(listOfBooks => {
+      expect(listOfBooks.length).toBe(10);
     });
     done();
   });
