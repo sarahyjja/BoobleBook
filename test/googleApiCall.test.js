@@ -1,8 +1,4 @@
-const {
-  makeGoogleApiCall,
-  getListOfBooks,
-  getListOfFiveBooks
-} = require("../src/googleApiCall");
+const { makeGoogleApiCall, getListOfBooks } = require("../src/googleApiCall");
 
 describe("Google books API call integration", () => {
   test("If returns a status code of 200", () => {
