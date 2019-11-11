@@ -1,8 +1,8 @@
 # BoobleBook CLI app
 
-### Create a command line application that allows you to use the Google Books API to search for books and construct a reading list.
+#### Create a command line application that allows you to use the Google Books API to search for books and construct a reading list.
 
-This application should allow you to:
+**This application should allow you to:**
 
 - [x] Type in a query and display a list of 5 books matching that query.
 - [x] Each item in the list should include the book's author, title, and publishing company.
@@ -34,8 +34,17 @@ When the project is imported, open your console/terminal and start the program b
 
 #### For exemple:
 - `npm start search Art` -> That will retrieves you a list of 5 books
+
+![](https://i.imgur.com/DypXvi3.png)
+
+
 - `npm start save 3` -> That will save the item with the number 3 in your list inside your `bookshelf.json` file
+
+![](https://i.imgur.com/02fF4Jj.png)
+
 - `npm start list` -> That will display your reading list which is inside your bookshelf file
+
+![](https://i.imgur.com/8qMjhBl.png)
 
 
 ## Tech stuff 💻
