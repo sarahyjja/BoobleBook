@@ -1,7 +1,8 @@
 const {
   makeGoogleApiCall,
   getListOfBooks,
-  getListOfFiveBooks
+  getListOfFiveBooks,
+  keepValuableInfos
 } = require("../src/googleApiCall");
 
 describe("Google books API call integration", () => {
@@ -40,5 +41,22 @@ describe("Google books API retrieves a list of books", () => {
       expect(typeof listOfBooks[0].publisher).toBe("string");
     });
     done();
+  });
+});
+
+describe("Management of boolean infos of Google books API ", () => {
+  test("If empty/undefined infos are retrieves as 'No ... listed'", () => {
+    infosResponse = [
+      {
+        volumeInfo: {
+          title: "OtherFakeTitle"
+        }
+      }
+    ];
+    const firstBook = getListOfFiveBooks(infosResponse);
+    expect(firstBook.length).toBe(1);
+    expect(firstBook[0].title).toBe("OtherFakeTitle");
+    // expect(firstBook[0].authors).toBe("No authors listed");
+    // expect(firstBook[0].publisher).toBe("No publisher listed");
   });
 });

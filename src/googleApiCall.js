@@ -25,33 +25,40 @@ const getListOfBooks = query => {
 const getListOfFiveBooks = books => {
   const keepFive = books.splice(0, 5);
   const mapList = keepFive.map(keepValuableInfos);
-  return keepFive;
+  return mapList;
 };
 
 // abstract mapping of infos
 const keepValuableInfos = info => {
   return {
-    title: getTitle(info),
+    // title: getTitle(info),
+    title: info.volumeInfo.title,
     authors: getAuthors(info),
+    // authors: info.volumeInfo.authors,
     publisher: getPublisher(info)
   };
 };
 
 // Mini function: getTitle
-const getTitle = receiveTitle => {
-  title: receiveTitle.volumeInfo.title;
-};
+// let getTitle = receiveTitle => {
+//   title: receiveTitle.volumeInfo.title;
+// };
 
 // Mini function: getAuthor
-const getAuthors = receiveAuthors => {
-  receiveAuthors.volumeInfo.authors
-    ? receiveAuthors.volumeInfo.authors.join(", ")
+let getAuthors = info => {
+  info.volumeInfo.authors
+    ? info.volumeInfo.authors.join(", ")
     : "No authors listed";
 };
 
 // Mini function: getPublisher
-const getPublisher = receivePublisher => {
-  receivePublisher.volumeInfo.publisher || "No publisher listed";
+const getPublisher = info => {
+  info.volumeInfo.publisher || "No publisher listed";
 };
 
-module.exports = { makeGoogleApiCall, getListOfBooks, getListOfFiveBooks };
+module.exports = {
+  makeGoogleApiCall,
+  getListOfBooks,
+  getListOfFiveBooks,
+  keepValuableInfos
+};
