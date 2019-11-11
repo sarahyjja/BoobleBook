@@ -11,10 +11,12 @@ const getListOfBooks = query => {
   return new Promise((resolve, reject) => {
     makeGoogleApiCall(query)
       .then(response => {
-        resolve(getListOfFiveBooks(response.data.items));
+        const theFinalFiveBooks = getListOfFiveBooks(response.data.items);
+        resolve(theFinalFiveBooks);
       })
       .catch(error => {
-        reject(error.response.data.error.message);
+        const errorMessage = error.response.data.error.message;
+        reject(errorMessage);
       });
   });
 };
@@ -36,4 +38,4 @@ const getListOfFiveBooks = books => {
 // Mini function: getAuthor
 // Mini function: getPublisher
 
-module.exports = { makeGoogleApiCall, getListOfBooks, getListOfFiveBooks };
+module.exports = { makeGoogleApiCall, getListOfBooks };
