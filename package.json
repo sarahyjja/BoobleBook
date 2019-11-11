@@ -2,9 +2,11 @@
   "name": "booblebookcli",
   "version": "1.0.0",
   "description": "Google book CLI app",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "jest test/*test.js"
+    "test": "jest test/*test.js",
+    "start": "node src/app.js",
+    "watch": "jest --watchAll"
   },
   "repository": {
     "type": "git",
