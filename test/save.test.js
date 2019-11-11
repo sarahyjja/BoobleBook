@@ -32,4 +32,13 @@ describe("Reading and saving some JSON", () => {
     expect(fileContent[1].authors).toBe("Anna");
     expect(fileContent[1].publisher).toBe("Grasset");
   });
+
+  test("If the file is overwritten each time saving to the file", () => {
+    const data = { title: "Art", authors: "Anna", publisher: "Grasset" };
+    save("testStorage.json", data);
+    save("testStorage.json", data);
+    const fileContent = read("testStorage.json");
+
+    expect(fileContent).toStrictEqual(data);
+  });
 });
