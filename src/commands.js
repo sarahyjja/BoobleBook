@@ -30,7 +30,7 @@ const formatInfosReceived = info => {
   return `
 Title: ${info.title}
 Authors: ${info.authors}
-publisher: ${info.publisher}
+Publisher: ${info.publisher}
   `;
 };
 
