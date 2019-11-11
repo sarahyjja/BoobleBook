@@ -1,8 +1,7 @@
 const {
   makeGoogleApiCall,
   getListOfBooks,
-  getListOfFiveBooks,
-  keepValuableInfos
+  getListOfFiveBooks
 } = require("../src/googleApiCall");
 
 describe("Google books API call integration", () => {

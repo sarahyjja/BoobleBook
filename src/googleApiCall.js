@@ -59,6 +59,5 @@ const getPublisher = info => {
 module.exports = {
   makeGoogleApiCall,
   getListOfBooks,
-  getListOfFiveBooks,
-  keepValuableInfos
+  getListOfFiveBooks
 };
