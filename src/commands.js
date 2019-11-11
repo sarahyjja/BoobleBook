@@ -1,3 +1,5 @@
+const { save, read } = require("./save");
+
 // Create function searchBooks
 const searchBooks = (googleRequest, query) => {
   return new Promise((resolve, reject) => {
@@ -8,6 +10,7 @@ const searchBooks = (googleRequest, query) => {
       if (books.length === 0) {
         resolve("Sorry! We haven't find any books matching your query.");
       } else {
+        save("mostRecentSearchStorage.json", books);
         const resultMsg = annonceResultMsg(
           books.map(infos => {
             formatInfosReceived(infos);
