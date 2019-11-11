@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { save, read } = require("../src/save");
+const { save, saveAppending, read } = require("../src/save");
 
 afterEach(() => {
   fs.unlinkSync("testStorage.json");

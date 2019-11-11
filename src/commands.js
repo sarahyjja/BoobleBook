@@ -1,4 +1,4 @@
-const { save, read } = require("./save");
+const { save, saveAppending, read } = require("./save");
 
 // Create function searchBooks
 const searchBooks = (googleRequest, query) => {
@@ -38,4 +38,27 @@ Publisher: ${info.publisher}
   `;
 };
 
-module.exports = { searchBooks };
+const bookmarkByIndex = index => {
+  if (index < 0 || index > 4) return "Invalid selection number";
+  const mostRecentSearch = read("mostRecentSearchStorage.json");
+  const selectedBook = mostRecentSearch[index];
+  saveAppending("bookshelf.json", selectedBook);
+  return "Book selected!";
+};
+
+const getBookmarks = () => {
+  let bookmarks;
+  try {
+    bookmarks = read("bookshelf.json");
+  } catch (err) {
+    return "No bookmarks found!";
+  }
+
+  if (bookmarks) {
+    return toMessage(bookmarks.map(format).join("\n"));
+  } else {
+    return "No bookmarks found!";
+  }
+};
+
+module.exports = { searchBooks, bookmarkByIndex, getBookmarks };

@@ -1,9 +1,22 @@
 // get a CLI command from user
-const { searchBooks } = require("../src/commands");
+const {
+  searchBooks,
+  bookmarkByIndex,
+  getBookmarks
+} = require("../src/commands");
 const {
   mockGoogleRequest,
   mockEmptyGoogleRequest
 } = require("../src/mockGoogle");
+const { save, saveAppending, read } = require("../src/save");
+const fs = require("fs");
+
+afterEach(() => {
+  try {
+    fs.unlinkSync("mostRecentSearchStorage.json");
+    fs.unlinkSync("bookshelf.json");
+  } catch (err) {}
+});
 
 describe("Create CLI command to search for books", () => {
   // Prompt the user for a query to search a book
@@ -38,5 +51,23 @@ describe("Create CLI command to search for books", () => {
       expect(message).toEqual("Please, add a word after the search command");
     });
     done();
+  });
+
+  test("that saves a bookmark based on existing searches", () => {
+    const content = [
+      { title: "Pop", authors: "Sarah", publisher: "Flammarion" },
+      { title: "Art", authors: "Anna", publisher: "Grasset" }
+    ];
+    save("mostRecentSearchStorage.json", content);
+
+    const emptyMessage = getBookmarks();
+    expect(emptyMessage).toEqual("No bookmarks found!");
+
+    // bookmarkByIndex(1);
+
+    // const message = getBookmarks();
+    // expect(message).toEqual(
+    //   expect.stringContaining("We found these books for you:")
+    // );
   });
 });
