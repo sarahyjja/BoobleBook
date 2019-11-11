@@ -24,7 +24,7 @@ const annonceResultMsg = booksDisplay => {
 
 // Return the books in the console
 const formatInfosReceived = info => {
-  `
+  return `
 Title: ${info.title}
 Authors: ${info.authors}
 publisher: ${info.publisher}
