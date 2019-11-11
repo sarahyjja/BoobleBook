@@ -1,4 +1,4 @@
-#BoobleBook CLI app
+# BoobleBook CLI app
 
 ### Create a command line application that allows you to use the Google Books API to search for books and construct a reading list.
 
@@ -11,33 +11,37 @@ This application should allow you to:
 
 ## Getting started 🤸‍♀️
 
-_To import the project locally:_
+**To import the project locally:**
 
-    1 - In your terminal: `git clone https://github.com/sarahyjja/BoobleBook.git`
-    2 - To navigate in the folder: `cd BoobleBook`
-    3 - Install the dependencies running in your terminal: `npm install`
+1 - In your terminal: `git clone https://github.com/sarahyjja/BoobleBook.git`
 
-_To run the project locally:_
+2 - To navigate in the folder: `cd BoobleBook`
+
+3 - Install the dependencies running in your terminal: `npm install`
+
+
+**To run the project locally:**
 
 When the project is imported, open your console/terminal and start the program by writing a command with this syntax:
 
-    `npm start` -> the console will ask you a to add a prompt to this command
-    `npm start search` | `npm start save` | `npm start list` -> are the 3 commands that you have access to manipulate the app
-    `npm start search <word>` | `npm start save <an index number>` -> add a third argument to access infos
+- `npm start` -> the console will ask you a to add a prompt to this command
 
-    ps: To search a query with multiple words do -> `npm start search <'a lot of words inside quotes'>`
+- `npm start search` | `npm start save` | `npm start list` -> are the 3 commands that you have access to manipulate the app
 
-    For exemple:
-    `npm start search Art` -> That will retrieves you a list of 5 books
-    ![]()
-    `npm start save 3` -> That will save the item with the number 3 in your list inside your `bookshelf.json` file
-    ![]()
-    `npm start list` -> That will display your reading list which is inside your bookshelf file
-    ![]()
+- `npm start search <word>` | `npm start save <an index number>` -> add a third argument to access infos
+
+*PS: To search a query with multiple words do -> `npm start search <'a lot of words inside quotes'>`*
+
+#### For exemple:
+- `npm start search Art` -> That will retrieves you a list of 5 books
+- `npm start save 3` -> That will save the item with the number 3 in your list inside your `bookshelf.json` file
+- `npm start list` -> That will display your reading list which is inside your bookshelf file
+
 
 ## Tech stuff 💻
 
 The project is build entirely in Vanilla Javascript.
+
 In the project, Axios library is used with Node.js to send asynchronous HTTP request to Google Book REST web services.
 
 ## Testing 🐿
@@ -45,28 +49,35 @@ In the project, Axios library is used with Node.js to send asynchronous HTTP req
 The `test` folder contains all the tests created for this app.
 JEST is the testing framework in use in this app.
 
-_To run the test:_
+**To run the test:**
 
-    `npm test` -> inside your terminal/console
+`npm test` -> inside your terminal/console
+
 
 ## What I've learned 👣
 
 - Local storage is only for the browser!!!
+
 - To have the possibility to save un item, like the browser, I fake a 'cache' file. This file is created every time that a search is run and save the search inside. When the app is running and the first search is done, this file will then contains 5 items due to the most recent search. Every time the command search is used, this file is overwritten by the most recent search.
+
 - I don't need API key all the time!
+
 
 ## What I struggled with 💆‍♀️
 
 - Local storage again! I had to find solution to manage it and I spent quite some time to really understand what I was looking for.
 
+
 ## What I'm happy with 💛
 
-- As I didn't have used a thousand libraries to do this project
-- As I stayed as simple as I could to keep a clear and clean code
-- Ads I sticked to the TDD methodology to test the project
+- I didn't use a thousand libraries to do this project
+- I stayed as simple as I could to keep a clear and clean code
+- I sticked to the TDD methodology to test the project
+
 
 ## What's next? Stretch goals 👩‍🎤
 
-- The save command can save multiple books in one time
+- The `save` command can save multiple books in one time
 - Deleting the whole list or just an item from the list
-- Give to this app a bit of love with a less abrupt interface
+- Give to this app a bit of ✨ love ✨ with a less abrupt interface
+
