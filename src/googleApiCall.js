@@ -24,18 +24,22 @@ const getListOfBooks = query => {
 // Abstract this function from the previous to retrive a list of 5 books
 const getListOfFiveBooks = books => {
   const keepFive = books.splice(0, 5);
-  const keepValuableInfos = keepFive.map(info => {
-    return {
-      title: info.volumeInfo.title,
-      authors: info.volumeInfo.authors.join(", "),
-      publisher: info.volumeInfo.publisher
-    };
-  });
+  const mapList = keepFive.map(keepValuableInfos);
   return keepFive;
 };
 
+// abstract mapping of infos
+const keepValuableInfos = info => {
+  return {
+    title: info.volumeInfo.title,
+    authors: info.volumeInfo.authors.join(", "),
+    publisher: info.volumeInfo.publisher
+  };
+};
+
 // Mini function: getTitle
+
 // Mini function: getAuthor
 // Mini function: getPublisher
 
-module.exports = { makeGoogleApiCall, getListOfBooks };
+module.exports = { makeGoogleApiCall, getListOfBooks, getListOfFiveBooks };
