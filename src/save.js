@@ -7,13 +7,16 @@ const save = (filename, content) => {
 };
 
 const saveAppending = (filename, content) => {
-  let existContent;
+  let existingContent;
   //  if the file file doesnt exist, init the content with an empty list
   try {
-    existContent = read(filename);
+    existingContent = read(filename);
   } catch (err) {
-    existContent = [];
+    existingContent = [];
   }
+
+  existingContent.push(content);
+  return save(filename, existingContent);
 };
 //  Create read function
 const read = filename => {

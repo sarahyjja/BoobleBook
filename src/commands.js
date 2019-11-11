@@ -6,16 +6,14 @@ const searchBooks = (googleRequest, query) => {
     // query error handling
     if (!query) resolve("Please, add a word after the search command");
 
-    googleRequest.getBooks(query).then(books => {
+    googleRequest.getListOfBooks(query).then(books => {
       // no matching query error handling
       if (books.length === 0) {
         resolve("Sorry! We haven't find any books matching your query.");
       } else {
         save("mostRecentSearchStorage.json", books);
         const resultMsg = annonceResultMsg(
-          books.map(infos => {
-            formatInfosReceived(infos);
-          })
+          books.map(formatInfosReceived).join("\n")
         );
         resolve(resultMsg);
       }
@@ -30,22 +28,26 @@ const annonceResultMsg = booksDisplay => {
 };
 
 // Return the books in the console
-const formatInfosReceived = info => {
+const formatInfosReceived = (info, index, array) => {
   return `
+${index}
 Title: ${info.title}
 Authors: ${info.authors}
 Publisher: ${info.publisher}
   `;
 };
 
+// Add number to select book
 const bookmarkByIndex = index => {
   if (index < 0 || index > 4) return "Invalid selection number";
+
   const mostRecentSearch = read("mostRecentSearchStorage.json");
   const selectedBook = mostRecentSearch[index];
   saveAppending("bookshelf.json", selectedBook);
   return "Book selected!";
 };
 
+// Answer to list command
 const getBookmarks = () => {
   let bookmarks;
   try {
@@ -55,7 +57,7 @@ const getBookmarks = () => {
   }
 
   if (bookmarks) {
-    return toMessage(bookmarks.map(format).join("\n"));
+    return annonceResultMsg(bookmarks.map(formatInfosReceived).join("\n"));
   } else {
     return "No bookmarks found!";
   }

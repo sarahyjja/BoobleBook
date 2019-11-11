@@ -4,10 +4,7 @@ const {
   bookmarkByIndex,
   getBookmarks
 } = require("../src/commands");
-const {
-  mockGoogleRequest,
-  mockEmptyGoogleRequest
-} = require("../src/mockGoogle");
+const { mockGoogleRequest, mockEmptyGoogleRequest } = require("./mockGoogle");
 const { save, saveAppending, read } = require("../src/save");
 const fs = require("fs");
 

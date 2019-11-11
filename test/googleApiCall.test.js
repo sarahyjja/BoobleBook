@@ -55,7 +55,7 @@ describe("Management of boolean infos of Google books API ", () => {
     const firstBook = getListOfFiveBooks(infosResponse);
     expect(firstBook.length).toBe(1);
     expect(firstBook[0].title).toBe("OtherFakeTitle");
-    // expect(firstBook[0].authors).toBe("No authors listed");
-    // expect(firstBook[0].publisher).toBe("No publisher listed");
+    expect(firstBook[0].authors).toBe("No authors listed");
+    expect(firstBook[0].publisher).toBe("No publisher listed");
   });
 });
