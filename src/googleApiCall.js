@@ -11,7 +11,7 @@ const getListOfBooks = query => {
   return new Promise((resolve, reject) => {
     makeGoogleApiCall(query)
       .then(response => {
-        resolve(response.data.items);
+        resolve(getListOfFiveBooks(response.data.items));
       })
       .catch(error => {
         reject(error.response.data.error.message);
@@ -19,8 +19,21 @@ const getListOfBooks = query => {
   });
 };
 
+// Abstract this function from the previous to retrive a list of 5 books
+const getListOfFiveBooks = books => {
+  const keepFive = books.splice(0, 5);
+  const keepValuableInfos = keepFive.map(info => {
+    return {
+      title: info.volumeInfo.title,
+      authors: info.volumeInfo.authors.join(", "),
+      publisher: info.volumeInfo.publisher
+    };
+  });
+  return keepFive;
+};
+
 // Mini function: getTitle
 // Mini function: getAuthor
 // Mini function: getPublisher
 
-module.exports = { makeGoogleApiCall, getListOfBooks };
+module.exports = { makeGoogleApiCall, getListOfBooks, getListOfFiveBooks };
