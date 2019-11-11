@@ -1,7 +1,7 @@
 // get a CLI command from user
 const { searchBooks } = require("../src/commands");
 
-// mock a request
+// mock a success request
 const mockGoogleRequest = {
   getBooks: query => {
     return new Promise((resolve, reject) => {
@@ -12,6 +12,15 @@ const mockGoogleRequest = {
           publisher: "fakePublisher"
         }
       ]);
+    });
+  }
+};
+
+// mock an empty request
+const mockEmptyGoogleRequest = {
+  getBooks: query => {
+    return new Promise((resolve, reject) => {
+      resolve([]);
     });
   }
 };
@@ -35,4 +44,13 @@ describe("Create CLI command to search for books", () => {
   //   });
   //   done();
   // });
+
+  test("that the console inform the user when no book are matching the query", done => {
+    searchBooks(mockEmptyGoogleRequest, "query").then(message => {
+      expect(message).toEqual(
+        "Sorry! We haven't find any books matching your query."
+      );
+    });
+    done();
+  });
 });
