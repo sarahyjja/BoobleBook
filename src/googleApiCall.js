@@ -31,15 +31,27 @@ const getListOfFiveBooks = books => {
 // abstract mapping of infos
 const keepValuableInfos = info => {
   return {
-    title: info.volumeInfo.title,
-    authors: info.volumeInfo.authors.join(", "),
-    publisher: info.volumeInfo.publisher
+    title: getTitle(info),
+    authors: getAuthors(info),
+    publisher: getPublisher(info)
   };
 };
 
 // Mini function: getTitle
+const getTitle = receiveTitle => {
+  title: receiveTitle.volumeInfo.title;
+};
 
 // Mini function: getAuthor
+const getAuthors = receiveAuthors => {
+  receiveAuthors.volumeInfo.authors
+    ? receiveAuthors.volumeInfo.authors.join(", ")
+    : "No authors listed";
+};
+
 // Mini function: getPublisher
+const getPublisher = receivePublisher => {
+  receivePublisher.volumeInfo.publisher || "No publisher listed";
+};
 
 module.exports = { makeGoogleApiCall, getListOfBooks, getListOfFiveBooks };
