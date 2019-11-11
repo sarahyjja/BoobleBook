@@ -35,6 +35,9 @@ describe("Google books API retrieves a list of books", () => {
   test("If getListOfBooks returns a list of 5 books", done => {
     getListOfBooks("Pop").then(listOfBooks => {
       expect(listOfBooks.length).toBe(5);
+      expect(typeof listOfBooks[0].title).toBe("string");
+      expect(typeof listOfBooks[0].authors).toBe("string");
+      expect(typeof listOfBooks[0].publisher).toBe("string");
     });
     done();
   });
