@@ -33,4 +33,10 @@ describe("Create CLI command to search for books", () => {
     });
     done();
   });
+  test("if the query is empty", done => {
+    searchBooks(mockEmptyGoogleRequest, "").then(message => {
+      expect(message).toEqual("Please, add a word after the search command");
+    });
+    done();
+  });
 });
