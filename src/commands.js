@@ -3,9 +3,10 @@ const { save, read } = require("./save");
 // Create function searchBooks
 const searchBooks = (googleRequest, query) => {
   return new Promise((resolve, reject) => {
+    // query error handling
+    if (!query) resolve("Please, add a word after the search command");
+
     googleRequest.getBooks(query).then(books => {
-      // query error handling
-      if (!query) resolve("Please, add a word after the search command");
       // no matching query error handling
       if (books.length === 0) {
         resolve("Sorry! We haven't find any books matching your query.");
