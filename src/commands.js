@@ -9,7 +9,7 @@ const searchBooks = (googleRequest, query) => {
     googleRequest.getListOfBooks(query).then(books => {
       // no matching query error handling
       if (books.length === 0) {
-        resolve("Sorry! We haven't find any books matching your query.");
+        resolve("Sorry! We haven't found any books matching your query.");
       } else {
         save("mostRecentSearchStorage.json", books);
         const resultMsg = annonceResultMsg(
