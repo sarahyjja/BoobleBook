@@ -47,7 +47,7 @@ const bookmarkByIndex = index => {
   const mostRecentSearch = read("mostRecentSearchStorage.json");
   const selectedBook = mostRecentSearch[index];
   saveAppending("bookshelf.json", selectedBook);
-  return "Book selected!";
+  return "Book selected and saved in your bookshelf!";
 };
 
 // Answer to list command

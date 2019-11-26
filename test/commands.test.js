@@ -73,4 +73,21 @@ describe("Create CLI command to search for books", () => {
     const emptyMessage = getBookmarks();
     expect(emptyMessage).toEqual("No bookmarks found!");
   });
+
+  test("that saves a book in the bookshelf", () => {
+    const content = [
+      { title: "Pop", authors: "Sarah", publisher: "Flammarion" },
+      { title: "Art", authors: "Anna", publisher: "Grasset" }
+    ];
+    save("mostRecentSearchStorage.json", content);
+
+    const message = bookmarkByIndex(1);
+    expect(message).toEqual("Book selected and saved in your bookshelf!");
+
+    const bookInShelf = read("bookshelf.json");
+    expect(bookInShelf).toEqual([
+      { title: "Art", authors: "Anna", publisher: "Grasset" }
+    ]);
+    console.log(bookInShelf);
+  });
 });
