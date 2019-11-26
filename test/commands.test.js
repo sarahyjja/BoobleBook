@@ -72,6 +72,14 @@ describe("Create CLI command to search for books", () => {
 
     const emptyMessage = getBookmarks();
     expect(emptyMessage).toEqual("No bookmarks found!");
+
+    bookmarkByIndex(1);
+
+    const message = getBookmarks();
+    expect(message).toEqual(
+      expect.stringContaining("We found these books for you:")
+    );
+    console.log("message we found", message);
   });
 
   test("that saves a book in the bookshelf", () => {
