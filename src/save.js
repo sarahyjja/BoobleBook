@@ -18,6 +18,7 @@ const saveAppending = (filename, content) => {
   existingContent.push(content);
   return save(filename, existingContent);
 };
+
 //  Create read function
 const read = filename => {
   const content = fs.readFileSync(filename, { encoding: "utf8" });

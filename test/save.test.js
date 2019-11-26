@@ -41,4 +41,14 @@ describe("Reading and saving some JSON", () => {
 
     expect(fileContent).toStrictEqual(data);
   });
+
+  test("If the saveAppending function appends all the objects inside of an array", () => {
+    const data = { title: "Art", authors: "Anna", publisher: "Grasset" };
+    saveAppending("testStorage.json", data);
+    saveAppending("testStorage.json", data);
+    const fileContent = read("testStorage.json");
+
+    expect(fileContent).toStrictEqual([data, data]);
+    console.log("file content", fileContent);
+  });
 });

@@ -3,9 +3,9 @@ const axios = require("axios");
 // Create the google book API call function
 const makeGoogleApiCall = query => {
   const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
-  // const encodedURL = encodeURI(url);
-  // console.log("encoded", encodedURL);
-  return axios.get(url);
+  const encodedURL = encodeURI(url);
+  console.log("encoded", encodedURL);
+  return axios.get(encodedURL);
 };
 
 // Create function to retrieve a list of books -> 10 from the JSON
