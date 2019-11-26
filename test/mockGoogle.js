@@ -1,4 +1,3 @@
-// mock a success request
 const mockGoogleRequest = {
   getBooks: query => {
     return new Promise((resolve, reject) => {
@@ -13,7 +12,6 @@ const mockGoogleRequest = {
   }
 };
 
-// mock an empty request
 const mockEmptyGoogleRequest = {
   getBooks: query => {
     return new Promise((resolve, reject) => {
@@ -21,4 +19,17 @@ const mockEmptyGoogleRequest = {
     });
   }
 };
-module.exports = { mockGoogleRequest, mockEmptyGoogleRequest };
+
+const mockWrongGoogleRequest = {
+  getBooks: query => {
+    return new Promise((resolve, reject) => {
+      const regex = /([^w]$)/;
+      resolve("The query is wrong, please try again");
+    });
+  }
+};
+module.exports = {
+  mockGoogleRequest,
+  mockEmptyGoogleRequest,
+  mockWrongGoogleRequest
+};

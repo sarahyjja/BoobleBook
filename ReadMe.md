@@ -24,11 +24,9 @@
 
 When the project is imported, open your console/terminal and start the program by writing a command with this syntax:
 
-- `npm start` -> the console will ask you a to add a prompt to this command
-
-- `npm start search` | `npm start save` | `npm start list` -> are the 3 commands that you have access to manipulate the app
-
-- `npm start search <word>` | `npm start save <an index number>` -> add a third argument to access infos
+    `npm start` -> the console will ask you to add a command
+    `npm start search` | `npm start save` | `npm start list` -> these are the 3 commands that gives you access to manipulate the app
+    `npm start search <word>` | `npm start save <an index number>` -> add a third argument to access infos
 
 *PS: To search a query with multiple words do -> `npm start search <'a lot of words inside quotes'>`*
 
@@ -36,7 +34,6 @@ When the project is imported, open your console/terminal and start the program b
 - `npm start search Art` -> That will retrieves you a list of 5 books
 
 ![](https://i.imgur.com/DypXvi3.png)
-
 
 - `npm start save 3` -> That will save the item with the number 3 in your list inside your `bookshelf.json` file
 
@@ -66,9 +63,7 @@ JEST is the testing framework in use in this app.
 ## What I've learned 👣
 
 - Local storage is only for the browser!!!
-
-- To have the possibility to save un item, like the browser, I fake a 'cache' file. This file is created every time that a search is run and save the search inside. When the app is running and the first search is done, this file will then contains 5 items due to the most recent search. Every time the command search is used, this file is overwritten by the most recent search.
-
+- To have the possibility to save an item, like the browser, I fake a 'cache' file. This file is created every time that a search is run and save the search inside. When the app is running and the first search is done, this file will then contains 5 items due to the most recent search. Every time the command search is used, this file is overwritten by the most recent search.
 - I don't need API key all the time!
 
 
@@ -79,9 +74,10 @@ JEST is the testing framework in use in this app.
 
 ## What I'm happy with 💛
 
-- I didn't use a thousand libraries to do this project
-- I stayed as simple as I could to keep a clear and clean code
-- I sticked to the TDD methodology to test the project
+
+- As I didn't have used a thousand libraries to do this project
+- As I stayed as simple as I could to keep a clear and clean code
+- As I sticked to the TDD methodology to test the project
 
 
 ## What's next? Stretch goals 👩‍🎤
@@ -89,4 +85,3 @@ JEST is the testing framework in use in this app.
 - The `save` command can save multiple books in one time
 - Deleting the whole list or just an item from the list
 - Give to this app a bit of ✨ love ✨ with a less abrupt interface
-
