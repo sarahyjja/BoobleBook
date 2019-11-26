@@ -4,7 +4,11 @@ const {
   bookmarkByIndex,
   getBookmarks
 } = require("../src/commands");
-const { mockGoogleRequest, mockEmptyGoogleRequest } = require("./mockGoogle");
+const {
+  mockGoogleRequest,
+  mockEmptyGoogleRequest,
+  mockWrongGoogleRequest
+} = require("./mockGoogle");
 const { save, saveAppending, read } = require("../src/save");
 const fs = require("fs");
 
@@ -48,6 +52,13 @@ describe("Create CLI command to search for books", () => {
   test("if the query is empty", done => {
     searchBooks(mockEmptyGoogleRequest, "").then(message => {
       expect(message).toEqual("Please, add a word after the search command");
+    });
+    done();
+  });
+
+  test("if the query is wrong", done => {
+    searchBooks(mockWrongGoogleRequest, "1092%&^").then(message => {
+      expect(message).toEqual("The query is wrong, please try again");
     });
     done();
   });

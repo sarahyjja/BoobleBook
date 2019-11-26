@@ -21,4 +21,18 @@ const mockEmptyGoogleRequest = {
     });
   }
 };
-module.exports = { mockGoogleRequest, mockEmptyGoogleRequest };
+
+// mock a wrong request
+const mockWrongGoogleRequest = {
+  getBooks: query => {
+    return new Promise((resolve, reject) => {
+      const regex = /([^w]$)/;
+      resolve("The query is wrong, please try again");
+    });
+  }
+};
+module.exports = {
+  mockGoogleRequest,
+  mockEmptyGoogleRequest,
+  mockWrongGoogleRequest
+};

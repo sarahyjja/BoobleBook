@@ -7,9 +7,12 @@ const searchBooks = (googleRequest, query) => {
     if (!query) resolve("Please, add a word after the search command");
 
     googleRequest.getListOfBooks(query).then(books => {
-      // no matching query error handling
+      // const rightQuery = /([^w]$)/;
+
       if (books.length === 0) {
         resolve("Sorry! We haven't found any books matching your query.");
+        // } else if (books.match(rightQuery)) {
+        //   resolve("The query is wrong, please try again");
       } else {
         save("mostRecentSearchStorage.json", books);
         const resultMsg = annonceResultMsg(
