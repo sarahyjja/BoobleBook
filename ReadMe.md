@@ -24,9 +24,11 @@
 
 When the project is imported, open your console/terminal and start the program by writing a command with this syntax:
 
-    `npm start` -> the console will ask you to add a command
-    `npm start search` | `npm start save` | `npm start list` -> these are the 3 commands that gives you access to manipulate the app
-    `npm start search <word>` | `npm start save <an index number>` -> add a third argument to access infos
+   `npm start` -> the console will ask you to add a command
+   
+   `npm start search` | `npm start save` | `npm start list` -> these are the 3 commands that gives you access to manipulate the app
+   
+   `npm start search <word>` | `npm start save <an index number>` -> add a third argument to access infos
 
 *PS: To search a query with multiple words do -> `npm start search <'a lot of words inside quotes'>`*
 
