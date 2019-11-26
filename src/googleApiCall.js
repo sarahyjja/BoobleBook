@@ -1,14 +1,11 @@
 const axios = require("axios");
 
-// Create the google book API call function
 const makeGoogleApiCall = query => {
   const url = `https://www.googleapis.com/books/v1/volumes?q=${query}`;
   const encodedURL = encodeURI(url);
-  console.log("encoded", encodedURL);
   return axios.get(encodedURL);
 };
 
-// Create function to retrieve a list of books -> 10 from the JSON
 const getListOfBooks = query => {
   return new Promise((resolve, reject) => {
     makeGoogleApiCall(query)
@@ -23,14 +20,12 @@ const getListOfBooks = query => {
   });
 };
 
-// Abstract this function from the previous to retrive a list of 5 books
 const getListOfFiveBooks = books => {
   const keepFive = books.splice(0, 5);
   const mapList = keepFive.map(keepValuableInfos);
   return mapList;
 };
 
-// abstract mapping of infos
 const keepValuableInfos = info => {
   return {
     title: getTitle(info),
@@ -38,17 +33,17 @@ const keepValuableInfos = info => {
     publisher: getPublisher(info)
   };
 };
-// Mini function: get title
+
 const getTitle = info => {
   return info.volumeInfo.title;
 };
-// Mini function: getAuthor
+
 const getAuthors = info => {
   return info.volumeInfo.authors
     ? info.volumeInfo.authors.join(", ")
     : "No authors listed";
 };
-// Mini function: getPublisher
+
 const getPublisher = info => {
   return info.volumeInfo.publisher || "No publisher listed";
 };

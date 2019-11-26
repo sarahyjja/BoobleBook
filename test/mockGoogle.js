@@ -1,4 +1,3 @@
-// mock a success request
 const mockGoogleRequest = {
   getBooks: query => {
     return new Promise((resolve, reject) => {
@@ -13,7 +12,6 @@ const mockGoogleRequest = {
   }
 };
 
-// mock an empty request
 const mockEmptyGoogleRequest = {
   getBooks: query => {
     return new Promise((resolve, reject) => {
@@ -22,7 +20,6 @@ const mockEmptyGoogleRequest = {
   }
 };
 
-// mock a wrong request
 const mockWrongGoogleRequest = {
   getBooks: query => {
     return new Promise((resolve, reject) => {

@@ -1,4 +1,3 @@
-// get a CLI command from user
 const {
   searchBooks,
   bookmarkByIndex,
@@ -79,7 +78,6 @@ describe("Create CLI command to search for books", () => {
     expect(message).toEqual(
       expect.stringContaining("We found these books for you:")
     );
-    console.log("message we found", message);
   });
 
   test("that saves a book in the bookshelf", () => {
@@ -96,6 +94,5 @@ describe("Create CLI command to search for books", () => {
     expect(bookInShelf).toEqual([
       { title: "Art", authors: "Anna", publisher: "Grasset" }
     ]);
-    console.log(bookInShelf);
   });
 });
